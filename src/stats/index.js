@@ -4,8 +4,8 @@ import Stat from "./Stat";
 const Stats = () => {
   return (
     <div>
-      <Stat description="Registered cases" />
-      <Stat description="Deaths" />
+      <Stat description="Registered cases" count={0} />
+      <Stat description="Deaths" count={1} />
     </div>
   );
 };
