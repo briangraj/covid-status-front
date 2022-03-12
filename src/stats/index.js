@@ -7,8 +7,15 @@ const Stats = () => {
   const [deathsCount, setDeathsCount] = useState(0);
 
   useEffect(() => {
-    statsService.getCasesCount()
-      .then(res => setCasesCount(res.count));
+    // TODO should be done separately?
+    Promise.all([
+      statsService.getCasesCount(),
+      statsService.getDeathsCount()
+    ])
+      .then(([resCases, resDeaths]) => {
+        setCasesCount(resCases.count);
+        setDeathsCount(resDeaths.count);
+      });
   }, []);
 
   return (

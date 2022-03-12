@@ -8,4 +8,9 @@ statsService.getCasesCount = () => {
     .then(res => res.json());
 };
 
+statsService.getDeathsCount = () => {
+  return fetch(urls.deaths)
+    .then(res => res.json());
+};
+
 export default statsService;
