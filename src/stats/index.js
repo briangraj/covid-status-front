@@ -1,9 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Stat from "./Stat";
+import {getCasesCount} from "../services/stats";
 
 const Stats = () => {
   const [casesCount, setCasesCount] = useState(0);
   const [deathsCount, setDeathsCount] = useState(0);
+
+  useEffect(() => {
+    getCasesCount()
+      .then(res => setCasesCount(res.count));
+  }, []);
 
   return (
     <div>
