@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectFilter from "./SelecFilter";
+import SelectFilter from "./SelectFilter";
 
 const genders = ["F", "M"];
 
