@@ -1,7 +1,9 @@
+import Stats from "./stats";
+
 function App() {
   return (
     <div>
-      <h1>HOLA</h1>
+      <Stats />
     </div>
   );
 }
