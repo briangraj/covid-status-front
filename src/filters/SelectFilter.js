@@ -3,7 +3,7 @@ import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 const SelectFilter = (props) => {
   const labelId = "select-" + props.labelId;
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
 
   const handleChange = event => {
     setValue(event.target.value);
@@ -22,7 +22,7 @@ const SelectFilter = (props) => {
           <em>None</em>
         </MenuItem>
         {props.possibleValues.map(possibleValue => (
-          <MenuItem value={possibleValue}>{possibleValue}</MenuItem>
+          <MenuItem key={possibleValue} value={possibleValue}>{possibleValue}</MenuItem>
         ))}
       </Select>
     </FormControl>
