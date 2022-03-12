@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Stat from "./Stat";
 
 const Stats = () => {
+  const [casesCount, setCasesCount] = useState(0);
+  const [deathsCount, setDeathsCount] = useState(0);
+
   return (
     <div>
-      <Stat description="Registered cases" count={0} />
-      <Stat description="Deaths" count={1} />
+      <Stat description="Registered cases" count={casesCount} />
+      <Stat description="Deaths" count={deathsCount} />
     </div>
   );
 };
