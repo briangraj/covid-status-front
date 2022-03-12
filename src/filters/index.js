@@ -5,13 +5,13 @@ const genders = ["F", "M"];
 
 const Filters = () => {
   return (
-    <div>
+    <form>
       <SelectFilter
         name="Gender"
         labelId="gender"
         possibleValues={genders}
       />
-    </div>
+    </form>
   );
 };
 

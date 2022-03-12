@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {InputLabel, MenuItem, Select} from "@mui/material";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 const SelectFilter = (props) => {
   const labelId = "select-" + props.labelId;
@@ -10,7 +10,7 @@ const SelectFilter = (props) => {
   };
 
   return (
-    <div>
+    <FormControl style={{ minWidth: 120 }}>
       <InputLabel id={labelId}>{props.name}</InputLabel>
       <Select
         labelId={labelId}
@@ -25,7 +25,7 @@ const SelectFilter = (props) => {
           <MenuItem value={possibleValue}>{possibleValue}</MenuItem>
         ))}
       </Select>
-    </div>
+    </FormControl>
   );
 };
 
