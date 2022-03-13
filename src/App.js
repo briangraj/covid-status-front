@@ -2,12 +2,13 @@ import Stats from "./stats";
 import Filters from "./filters";
 import {useEffect, useState} from "react";
 import statsService from "./services/stats";
+import {paramNames} from "./filters/utils";
 
 function App() {
   const [casesCount, setCasesCount] = useState(0);
   const [deathsCount, setDeathsCount] = useState(0);
   const [query, setQuery] = useState({
-    gender: "",
+    [paramNames.gender]: "",
   });
 
   const refreshStats = (query = {}) => {

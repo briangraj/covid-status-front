@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectFilter from "./SelectFilter";
 import {Button} from "@mui/material";
+import {paramNames} from "./utils";
 
 const genders = ["F", "M"];
 
@@ -12,7 +13,7 @@ const Filters = (props) => {
         labelId="gender"
         possibleValues={genders}
         onChange={props.onChange}
-        name="gender"
+        name={paramNames.gender}
         value={props.query.gender}
       />
       <br/>
