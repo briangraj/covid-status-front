@@ -33,10 +33,12 @@ const removeEmptyStrings = (params) => {
 
   Object.keys(params).forEach(key => {
     if (params[key] !== "")
-      returnParams[key] = params[key];
+      returnParams[camelToSnakeCase(key)] = params[key];
   });
 
   return returnParams;
 };
+
+const camelToSnakeCase = str => str.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`);
 
 export default statsService;
