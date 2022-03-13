@@ -6,10 +6,10 @@ import statsService from "./services/stats";
 function App() {
   const [casesCount, setCasesCount] = useState(0);
   const [deathsCount, setDeathsCount] = useState(0);
-  const [query, setQuery] = useState({});
+  const [query, setQuery] = useState();
 
-  const refreshStats = () => {
-    statsService.getStats()
+  const refreshStats = (query = {}) => {
+    statsService.getStats(query)
       .then(stats => {
         setCasesCount(stats.casesCount);
         setDeathsCount(stats.deathsCount);
@@ -21,14 +21,25 @@ function App() {
   const handleInputChange = (event) => {
     const { value, name } = event.target;
 
+    // TODO si llega un "" podria borrar la key???
     setQuery({
       [name]: value
     })
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    refreshStats(query);
+  };
+
   return (
     <div>
-      <Filters onChange={handleInputChange} query={query} />
+      <Filters
+        onChange={handleInputChange}
+        handleSubmit={handleSubmit}
+        query={query}
+      />
       <hr />
       <Stats casesCount={casesCount} deathsCount={deathsCount} />
     </div>
