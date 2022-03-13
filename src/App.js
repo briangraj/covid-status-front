@@ -23,9 +23,10 @@ function App() {
   const handleInputChange = (event) => {
     const { value, name } = event.target;
 
-    setQuery({
-      [name]: value
-    })
+    setQuery(currentQuery => ({
+      ...currentQuery,
+      [name]: value,
+    }))
   };
 
   const handleSubmit = (event) => {
