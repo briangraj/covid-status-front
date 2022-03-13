@@ -9,6 +9,8 @@ function App() {
   const [deathsCount, setDeathsCount] = useState(0);
   const [query, setQuery] = useState({
     [paramNames.gender]: "",
+    [paramNames.ageFrom]: "",
+    [paramNames.ageTo]: "",
   });
 
   const refreshStats = (query = {}) => {
