@@ -5,12 +5,12 @@ import urls from "./urls";
 const statsService = {};
 
 statsService.getCasesCount = (params) => {
-  return axios.get(urls.total, { params })
+  return axios.get(urls.total, { params: removeEmptyStrings(params) })
     .then(res => res.data);
 };
 
 statsService.getDeathsCount = (params) => {
-  return axios.get(urls.deaths, { params })
+  return axios.get(urls.deaths, { params: removeEmptyStrings(params) })
     .then(res => res.data);
 };
 
@@ -25,6 +25,18 @@ statsService.getStats = (params) => {
         deathsCount: resDeaths.count,
       };
     });
+};
+
+const removeEmptyStrings = (params) => {
+  // Create new object so "params" is not modified
+  const returnParams = {};
+
+  Object.keys(params).forEach(key => {
+    if (params[key] !== "")
+      returnParams[key] = params[key];
+  });
+
+  return returnParams;
 };
 
 export default statsService;
