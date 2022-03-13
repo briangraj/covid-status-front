@@ -19,6 +19,8 @@ const Filters = (props) => {
         value={props.query.gender}
       />
 
+      {/*TODO add state filter*/}
+
       <AgeFilter
         query={props.query}
         onChange={props.onChange}
