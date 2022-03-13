@@ -8,6 +8,7 @@ const AgeFilter = (props) => {
       <FromToFilter
         title="Age"
         from={
+          // TODO verify age is not negative
           <input
             type="number"
             name={paramNames.ageFrom}
