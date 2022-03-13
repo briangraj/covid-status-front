@@ -1,16 +1,17 @@
+import axios from "axios";
 import urls from "./urls";
 
 // TODO handle error
 const statsService = {};
 
 statsService.getCasesCount = () => {
-  return fetch(urls.total)
-    .then(res => res.json());
+  return axios.get(urls.total)
+    .then(res => res.data);
 };
 
 statsService.getDeathsCount = () => {
-  return fetch(urls.deaths)
-    .then(res => res.json());
+  return axios.get(urls.deaths)
+    .then(res => res.data);
 };
 
 statsService.getStats = () => {
