@@ -3,6 +3,7 @@ import SelectFilter from "./SelectFilter";
 import {Button} from "@mui/material";
 import {paramNames} from "./utils";
 import AgeFilter from "./AgeFilter";
+import DateFilter from "./DateFilter";
 
 const genders = ["F", "M"];
 
@@ -18,13 +19,17 @@ const Filters = (props) => {
         value={props.query.gender}
       />
 
-      <br/>
       <AgeFilter
         query={props.query}
         onChange={props.onChange}
       />
 
+      <DateFilter
+        query={props.query}
+        onChange={props.onChange}
+      />
       <br/>
+
       <Button
         type="submit"
         variant="contained"

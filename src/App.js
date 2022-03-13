@@ -11,6 +11,8 @@ function App() {
     [paramNames.gender]: "",
     [paramNames.ageFrom]: "",
     [paramNames.ageTo]: "",
+    [paramNames.dateFrom]: "",
+    [paramNames.dateTo]: "",
   });
 
   const refreshStats = (query = {}) => {
