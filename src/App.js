@@ -8,13 +8,15 @@ function App() {
   const [deathsCount, setDeathsCount] = useState(0);
   const [query, setQuery] = useState({});
 
-  useEffect(() => {
+  const refreshStats = () => {
     statsService.getStats()
       .then(stats => {
         setCasesCount(stats.casesCount);
         setDeathsCount(stats.deathsCount);
       });
-  }, []);
+  };
+
+  useEffect(refreshStats, []);
 
   const handleInputChange = (event) => {
     const { value, name } = event.target;
