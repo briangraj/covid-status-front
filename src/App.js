@@ -6,7 +6,9 @@ import statsService from "./services/stats";
 function App() {
   const [casesCount, setCasesCount] = useState(0);
   const [deathsCount, setDeathsCount] = useState(0);
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState({
+    gender: "",
+  });
 
   const refreshStats = (query = {}) => {
     statsService.getStats(query)
@@ -21,7 +23,6 @@ function App() {
   const handleInputChange = (event) => {
     const { value, name } = event.target;
 
-    // TODO si llega un "" podria borrar la key???
     setQuery({
       [name]: value
     })
