@@ -3,13 +3,15 @@ import SelectFilter from "./SelectFilter";
 
 const genders = ["F", "M"];
 
-const Filters = () => {
+const Filters = (props) => {
   return (
     <form>
       <SelectFilter
-        name="Gender"
+        title="Gender"
         labelId="gender"
         possibleValues={genders}
+        onChange={props.onChange}
+        value={props.query.gender}
       />
     </form>
   );

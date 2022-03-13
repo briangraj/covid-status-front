@@ -6,6 +6,7 @@ import statsService from "./services/stats";
 function App() {
   const [casesCount, setCasesCount] = useState(0);
   const [deathsCount, setDeathsCount] = useState(0);
+  const [query, setQuery] = useState({});
 
   useEffect(() => {
     statsService.getStats()
@@ -15,9 +16,17 @@ function App() {
       });
   }, []);
 
+  const handleInputChange = (event) => {
+    const { value, name } = event.target;
+
+    setQuery({
+      [name]: value
+    })
+  };
+
   return (
     <div>
-      <Filters />
+      <Filters onChange={handleInputChange} query={query} />
       <hr />
       <Stats casesCount={casesCount} deathsCount={deathsCount} />
     </div>

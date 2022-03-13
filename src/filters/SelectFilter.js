@@ -3,20 +3,15 @@ import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 const SelectFilter = (props) => {
   const labelId = "select-" + props.labelId;
-  const [value, setValue] = useState("");
-
-  const handleChange = event => {
-    setValue(event.target.value);
-  };
 
   return (
     <FormControl style={{ minWidth: 120 }}>
-      <InputLabel id={labelId}>{props.name}</InputLabel>
+      <InputLabel id={labelId}>{props.title}</InputLabel>
       <Select
         labelId={labelId}
-        value={value}
-        label={props.name}
-        onChange={handleChange}
+        value={props.value}
+        label={props.title}
+        onChange={props.onChange}
       >
         <MenuItem value="">
           <em>None</em>
