@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Stat from "./Stat";
+import SyncData from "./SyncData";
 
 const Stats = (props) => {
   return (
     <div>
       <Stat description="Registered cases" count={props.casesCount} />
       <Stat description="Deaths" count={props.deathsCount} />
+      <SyncData />
     </div>
   );
 };

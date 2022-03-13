@@ -27,6 +27,11 @@ statsService.getStats = (params) => {
     });
 };
 
+statsService.getUpdate = () => {
+  return axios.get(urls.update)
+    .then(res => res.data);
+};
+
 const removeEmptyStrings = (params) => {
   // Create new object so "params" is not modified
   const returnParams = {};
