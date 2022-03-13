@@ -11,6 +11,7 @@ const Filters = (props) => {
         labelId="gender"
         possibleValues={genders}
         onChange={props.onChange}
+        name="gender"
         value={props.query.gender}
       />
     </form>

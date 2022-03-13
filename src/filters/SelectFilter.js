@@ -9,6 +9,7 @@ const SelectFilter = (props) => {
       <InputLabel id={labelId}>{props.title}</InputLabel>
       <Select
         labelId={labelId}
+        name={props.name}
         value={props.value}
         label={props.title}
         onChange={props.onChange}
