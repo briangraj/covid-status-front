@@ -8,6 +8,7 @@ import DateFilter from "./DateFilter";
 const genders = ["F", "M"];
 
 const Filters = (props) => {
+  const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState({
     [paramNames.gender]: "",
     [paramNames.ageFrom]: "",
@@ -30,10 +31,12 @@ const Filters = (props) => {
   };
 
   const handleSubmit = (event) => {
+    setLoading(true);
     event.preventDefault();
 
     props.refreshStats(query)
-      .catch(handleError);
+      .catch(handleError)
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -60,11 +63,13 @@ const Filters = (props) => {
       />
       <br/>
 
+      {/*TODO reuse button*/}
       <Button
         type="submit"
         variant="contained"
+        disabled={loading}
       >
-        Filter
+        { loading ? "Loading..." : "Filter" }
       </Button>
     </form>
   );
