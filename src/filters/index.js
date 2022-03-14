@@ -16,6 +16,10 @@ const Filters = (props) => {
     [paramNames.dateTo]: "",
   });
 
+  const handleError = (err) => {
+    alert(err);
+  };
+
   const handleInputChange = (event) => {
     const { value, name } = event.target;
 
@@ -28,7 +32,8 @@ const Filters = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    props.refreshStats(query);
+    props.refreshStats(query)
+      .catch(handleError);
   };
 
   return (

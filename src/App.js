@@ -8,14 +8,17 @@ function App() {
   const [deathsCount, setDeathsCount] = useState(0);
 
   const refreshStats = (query = {}) => {
-    statsService.getStats(query)
+    return statsService.getStats(query)
       .then(stats => {
         setCasesCount(stats.casesCount);
         setDeathsCount(stats.deathsCount);
       });
   };
 
-  useEffect(refreshStats, []);
+  useEffect(() => {
+    refreshStats()
+      .catch(alert);
+  }, []);
 
   return (
     <div>

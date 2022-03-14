@@ -7,21 +7,28 @@ const SyncData = () => {
   const [lastUpdate, setLastUpdate] = useState("");
   const [updatedRecords, setUpdatedRecords] = useState("");
 
+  const handleError = (err) => {
+    alert(err);
+  };
+
   const refreshSyncData = () => {
-    statsService.getUpdate()
+    return statsService.getUpdate()
       .then(update => {
         setLastUpdate(update.lastLoadDate);
         setUpdatedRecords(update.updatedRecords);
       });
   };
 
-  useEffect(refreshSyncData, []);
+  useEffect(() => {
+    refreshSyncData()
+      .catch(handleError);
+  }, []);
 
-  const handleClick = (event) => {
-    event.preventDefault();
+  const handleClick = () => {
 
     statsService.postUpdate()
-      .then(refreshSyncData);
+      .then(refreshSyncData)
+      .catch(handleError);
   };
 
   return (
