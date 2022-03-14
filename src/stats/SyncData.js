@@ -5,13 +5,15 @@ const SyncData = () => {
   const [lastUpdate, setLastUpdate] = useState("");
   const [updatedRecords, setUpdatedRecords] = useState("");
 
-  useEffect(() => {
+  const refreshSyncData = () => {
     statsService.getUpdate()
       .then(update => {
         setLastUpdate(update.lastLoadDate);
         setUpdatedRecords(update.updatedRecords);
       });
-  }, []);
+  };
+
+  useEffect(refreshSyncData, []);
 
   return (
     <div>
