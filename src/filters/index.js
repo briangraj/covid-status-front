@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SelectFilter from "./SelectFilter";
 import {Button} from "@mui/material";
 import {paramNames} from "./utils";
@@ -8,27 +8,50 @@ import DateFilter from "./DateFilter";
 const genders = ["F", "M"];
 
 const Filters = (props) => {
+  const [query, setQuery] = useState({
+    [paramNames.gender]: "",
+    [paramNames.ageFrom]: "",
+    [paramNames.ageTo]: "",
+    [paramNames.dateFrom]: "",
+    [paramNames.dateTo]: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { value, name } = event.target;
+
+    setQuery(currentQuery => ({
+      ...currentQuery,
+      [name]: value,
+    }))
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    props.refreshStats(query);
+  };
+
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <SelectFilter
         title="Gender"
         labelId="gender"
         possibleValues={genders}
-        onChange={props.onChange}
+        onChange={handleInputChange}
         name={paramNames.gender}
-        value={props.query.gender}
+        value={query.gender}
       />
 
       {/*TODO add state filter*/}
 
       <AgeFilter
-        query={props.query}
-        onChange={props.onChange}
+        query={query}
+        onChange={handleInputChange}
       />
 
       <DateFilter
-        query={props.query}
-        onChange={props.onChange}
+        query={query}
+        onChange={handleInputChange}
       />
       <br/>
 
