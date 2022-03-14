@@ -32,6 +32,10 @@ statsService.getUpdate = () => {
     .then(res => res.data);
 };
 
+statsService.postUpdate = () => {
+  return axios.post(urls.update);
+};
+
 const removeEmptyStrings = (params) => {
   // Create new object so "params" is not modified
   const returnParams = {};
