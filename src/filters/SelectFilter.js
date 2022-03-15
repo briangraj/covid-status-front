@@ -1,26 +1,22 @@
-import React, {useState} from 'react';
-import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import React from 'react';
+import {FormControl} from "@mui/material";
 
 const SelectFilter = (props) => {
-  const labelId = "select-" + props.labelId;
-
   return (
-    <FormControl style={{ minWidth: 120 }}>
-      <InputLabel id={labelId}>{props.title}</InputLabel>
-      <Select
-        labelId={labelId}
-        name={props.name}
-        value={props.value}
-        label={props.title}
-        onChange={props.onChange}
-      >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
-        {props.possibleValues.map(possibleValue => (
-          <MenuItem key={possibleValue} value={possibleValue}>{possibleValue}</MenuItem>
-        ))}
-      </Select>
+    <FormControl>
+      <label>
+        {props.title}:
+        <select
+          name={props.name}
+          value={props.value}
+          onChange={props.onChange}
+        >
+          <option value={""}>Any</option>
+          {props.possibleValues.map(possibleValue => (
+            <option key={possibleValue} value={possibleValue}>{possibleValue}</option>
+          ))}
+        </select>
+      </label>
     </FormControl>
   );
 };
