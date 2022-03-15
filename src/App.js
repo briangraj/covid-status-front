@@ -1,3 +1,4 @@
+import "./App.css"
 import Stats from "./stats";
 import Filters from "./filters";
 import {useEffect, useState} from "react";
@@ -21,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="App">
       <Filters refreshStats={refreshStats} />
       <hr />
       <Stats casesCount={casesCount} deathsCount={deathsCount} />

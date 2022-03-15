@@ -2,7 +2,7 @@ import React from 'react';
 
 const Stat = (props) => {
   return (
-    <div>
+    <div className="Stat">
       <h2>{props.count}</h2>
       <p>{props.description}</p>
     </div>

@@ -40,38 +40,40 @@ const Filters = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <SelectFilter
-        title="Gender"
-        labelId="gender"
-        possibleValues={genders}
-        onChange={handleInputChange}
-        name={paramNames.gender}
-        value={query.gender}
-      />
+    <section>
+      <form onSubmit={handleSubmit}>
+        <SelectFilter
+          title="Gender"
+          labelId="gender"
+          possibleValues={genders}
+          onChange={handleInputChange}
+          name={paramNames.gender}
+          value={query.gender}
+        />
 
-      {/*TODO add state filter*/}
+        {/*TODO add state filter*/}
 
-      <AgeFilter
-        query={query}
-        onChange={handleInputChange}
-      />
+        <AgeFilter
+          query={query}
+          onChange={handleInputChange}
+        />
 
-      <DateFilter
-        query={query}
-        onChange={handleInputChange}
-      />
-      <br/>
+        <DateFilter
+          query={query}
+          onChange={handleInputChange}
+        />
+        <br/>
 
-      {/*TODO reuse button*/}
-      <Button
-        type="submit"
-        variant="contained"
-        disabled={loading}
-      >
-        { loading ? "Loading..." : "Filter" }
-      </Button>
-    </form>
+        {/*TODO reuse button*/}
+        <Button
+          type="submit"
+          variant="contained"
+          disabled={loading}
+        >
+          { loading ? "Loading..." : "Filter" }
+        </Button>
+      </form>
+    </section>
   );
 };
 

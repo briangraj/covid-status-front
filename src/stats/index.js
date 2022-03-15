@@ -4,11 +4,11 @@ import SyncData from "./SyncData";
 
 const Stats = (props) => {
   return (
-    <div>
+    <section>
       <Stat description="Registered cases" count={props.casesCount} />
       <Stat description="Deaths" count={props.deathsCount} />
       <SyncData />
-    </div>
+    </section>
   );
 };
 
