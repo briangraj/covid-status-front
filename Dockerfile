@@ -1,6 +1,7 @@
 FROM node:14-alpine AS builder
 
 ENV NODE_ENV production
+ENV REACT_APP_CSB_BASE_URL "https://csb.briang.tech"
 
 # Add a work directory
 WORKDIR /csf
